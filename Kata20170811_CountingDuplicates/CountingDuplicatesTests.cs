@@ -11,17 +11,20 @@ namespace Kata20170811_CountingDuplicates
         [TestMethod]
         public void input_abc_should_return_0()
         {
-            var kata = new Kata();
-            var actual = kata.DuplicateCount("abc");
-            Assert.AreEqual(0, actual);
+            DuplicateCountShouldBe(0, "abc");
         }
 
         [TestMethod]
         public void input_abca_should_return_1()
         {
+            DuplicateCountShouldBe(1, "abca");
+        }
+
+        private static void DuplicateCountShouldBe(int expected, string str)
+        {
             var kata = new Kata();
-            var actual = kata.DuplicateCount("abca");
-            Assert.AreEqual(1, actual);
+            var actual = kata.DuplicateCount(str);
+            Assert.AreEqual(expected, actual);
         }
     }
 
@@ -31,15 +34,16 @@ namespace Kata20170811_CountingDuplicates
         {
             var result = 0;
             var oldChar = new List<char>();
-            for (int i = 0; i < str.Length; i++)
+            foreach (var c in str)
             {
-                if (str.Count(a => a == str[i]) > 1 
-                    && !oldChar.Contains(str[i]))
+                if (str.Count(a => a == c) > 1 
+                    && !oldChar.Contains(c))
                 {
-                    oldChar.Add(str[i]);
+                    oldChar.Add(c);
                     result++;
                 }
             }
+
             return result;
         }
     }
