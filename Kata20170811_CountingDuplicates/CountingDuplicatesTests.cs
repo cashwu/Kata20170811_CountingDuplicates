@@ -54,20 +54,7 @@ namespace Kata20170811_CountingDuplicates
     {
         public int DuplicateCount(string str)
         {
-            var result = 0;
-
-            for (var i = str.Length - 1; i >= 0; i--)
-            {
-                var lowerChar = char.ToLower(str[i]);
-                if (str.Count(a => char.ToLower(a) == lowerChar) > 1)
-                {
-                    str = str.Replace(str[i].ToString(), "");
-                    i = str.Length;
-                    result++;
-                }
-            }
-
-            return result;
+            return str.ToLower().GroupBy(a => a).Count(a => a.Count() > 1);
         }
     }
 }
