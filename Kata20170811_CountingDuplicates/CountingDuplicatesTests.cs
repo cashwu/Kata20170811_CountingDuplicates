@@ -20,6 +20,13 @@ namespace Kata20170811_CountingDuplicates
             DuplicateCountShouldBe(1, "abca");
         }
 
+
+        [TestMethod]
+        public void input_abcA_should_return_1()
+        {
+            DuplicateCountShouldBe(1, "abcA");
+        }
+
         private static void DuplicateCountShouldBe(int expected, string str)
         {
             var kata = new Kata();
@@ -36,10 +43,10 @@ namespace Kata20170811_CountingDuplicates
             var oldChar = new List<char>();
             foreach (var c in str)
             {
-                if (str.Count(a => a == c) > 1 
-                    && !oldChar.Contains(c))
+                if (str.Count(a => char.ToLower(a) == char.ToLower(c)) > 1 
+                    && !oldChar.Contains(char.ToLower(c)))
                 {
-                    oldChar.Add(c);
+                    oldChar.Add(char.ToLower(c));
                     result++;
                 }
             }
