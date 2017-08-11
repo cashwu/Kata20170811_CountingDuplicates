@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Kata20170811_CountingDuplicates
@@ -20,11 +18,28 @@ namespace Kata20170811_CountingDuplicates
             DuplicateCountShouldBe(1, "abca");
         }
 
-
         [TestMethod]
         public void input_abcA_should_return_1()
         {
             DuplicateCountShouldBe(1, "abcA");
+        }
+
+        [TestMethod]
+        public void input_empty_should_return_0()
+        {
+            DuplicateCountShouldBe(0, "");
+        }
+
+        [TestMethod]
+        public void input_aabbcde_should_return_2()
+        {
+            DuplicateCountShouldBe(2, "aabbcde");
+        }
+
+        [TestMethod]
+        public void input_Indivisibility_should_return_1()
+        {
+            DuplicateCountShouldBe(1, "Indivisibility");
         }
 
         private static void DuplicateCountShouldBe(int expected, string str)
