@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Kata20170811_CountingDuplicates
 {
     [TestClass]
-    public class UnitTest1
+    public class CountingDuplicatesTests
     {
         [TestMethod]
         public void TestMethod1()
